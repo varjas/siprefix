@@ -28,7 +28,7 @@ siprefix.scale(0.5)
 # '500.0 m'
 
 # int
-siprefix.scale(9000, False)
+siprefix.scale(9000)
 # '9.0 k'
 
 # Decimal

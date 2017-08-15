@@ -14,13 +14,13 @@ Y, Z, E, P, T, G, M, k, (base), c, m, µ, n, p, f, a, z, y
 
 ### Value Scaling
 ```python
-siprefix.scale(value)
+siprefix.scale(value, combined=True)
 ```
 
 #### Base Order Input
 The `value` parameter can be a `float`, `int`, `Decimal`, or `str` type.
 
-The function will output a `str` with the scaled number and prefix; or a tuple containing a `float` of the scaled number and a `str` of the prefix if the second argument is set to `True`.
+The function will output a `str` with the scaled number and prefix; or a tuple containing a `float` of the scaled number and a `str` of the prefix if the second argument is set to `False`.
 
 ```python
 # float
@@ -28,7 +28,7 @@ siprefix.scale(0.5)
 # '500.0 m'
 
 # int
-siprefix.scale(9000, True)
+siprefix.scale(9000, False)
 # '9.0 k'
 
 # Decimal
@@ -40,7 +40,7 @@ siprefix.scale('0.0000000000004')
 # '400.0 f'
 
 # Tuple output
-siprefix.scale(0.5, True)
+siprefix.scale(0.5, False)
 # (500.0, 'm')
 ```
 
@@ -55,7 +55,7 @@ siprefix.scale('0.0000005 a')
 siprefix.scale('9000000 m')
 # '9.0 k'
 
-siprefix.scale('9000000 m', True)
+siprefix.scale('9000000 m', False)
 # (9.0, 'k')
 ```
 
@@ -69,6 +69,9 @@ SIPrefix does not handle units at all. There are many other packages capable of 
 If units are required, they should be removed from the input value and appended after scaling.
 
 ### Value Expansion
+```python
+siprefix.scale(value)
+```
 
 The `value` parameter must be a `str` type.
 

@@ -49,13 +49,15 @@ def scale(value, combined=True):
 		# Expand number
 		value = expand(value)
 
+	# Convert to float for scaling calculation
 	value = float(value)
 	
 	# Get number of non-decimal digits
 	order = int(math.log10(abs(value)))
-	# Convert order to multiple of 3
-	order = math.floor(order / 3) * 3
+	# Convert order to first lowest multiple of 3
+	order = order // 3 * 3
 
+	# Scale number by order of magnitude determined
 	value = value / 10 ** order
 
 	# Attempt to get prefix from order
@@ -80,6 +82,7 @@ def expand(value):
 			# Remove prfix from value string
 			value = value[:-1].strip()
 
+	# Convert to float for expansion calculation
 	value = float(value)
 
 	# Scale value by order of magnitude determined

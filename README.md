@@ -8,7 +8,7 @@ import siprefix
 ```
 
 ## Usage
-SIPrefix only uses SI prefixes that are 3 orders of magnitude apart, including:
+SIPrefix only uses SI prefixes that are separated by 3 orders of magnitude, including:
 
 Y, Z, E, P, T, G, M, k, (base), c, m, µ, n, p, f, a, z, y
 
@@ -73,12 +73,15 @@ If units are required, they should be removed from the input value and appended 
 siprefix.scale(value)
 ```
 
-The `value` parameter must be a `str` type.
+The `value` parameter should be a `str` type to include an associated SI prefix. The prefix can directly follow the number without a space. The function will not expand any values if the parameter is a `float`, `int`, or `Decimal` type.
 
 The function will output a `float` of the expanded number.
 
 ```python
 siprefix.expand('0.5 m')
+# 0.5
+
+siprefix.expand('0.5m')
 # 0.5
 
 siprefix.expand('9 K')

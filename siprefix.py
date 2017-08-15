@@ -95,4 +95,3 @@ def expand(value):
 	value = value * 10 ** order
 
 	return value
-

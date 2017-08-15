@@ -35,10 +35,6 @@ def siConvert(order=None, prefix=None):
 			raise KeyError("invalid 'prefix' defined: " + str(prefix))
 	# If scale is set
 	if order is not None:
-		if order > 24:
-			order = 24
-		elif order < -24:
-			order = -24
 		# Return prefix
 		try:
 			return next((k for k, v in data.items() if v == order))
@@ -60,6 +56,12 @@ def scale(value, combined=True):
 	order = int(math.log10(abs(value)))
 	# Convert order to first lowest multiple of 3
 	order = order // 3 * 3
+
+	# Adjust order by maximum range of prefixes in dictionary
+	if order > 24:
+		order = 24
+	elif order < -24:
+		order = -24
 
 	# Scale number by order of magnitude determined
 	value = value / 10 ** order

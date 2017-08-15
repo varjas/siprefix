@@ -78,16 +78,12 @@ The `value` parameter should be a `str` type to include an associated SI prefix.
 The function will output a `float` of the expanded number.
 
 ```python
-siprefix.expand('0.5 m')
-# 0.5
-
-siprefix.expand('0.5m')
+siprefix.expand('500 m')
 # 0.5
 
 siprefix.expand('9 K')
 # 9000.0
 
-# Decimal
 siprefix.expand('30')
 # 30.0
 
@@ -96,7 +92,7 @@ siprefix.expand('400.0 f')
 ```
 
 ## Resources
-- [SIPrefix GitLab](https://www.gitlab.com)
+- [SIPrefix GitLab](https://gitlab.com/varjas/siprefix)
 - [SIPrefix GitHub](https://www.github.com)
 
 ## License

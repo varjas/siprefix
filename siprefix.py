@@ -1,3 +1,4 @@
+import math
 # Return prefix or scale based on one input
 # Only handles prefixes separated by 3 orders of magnitude
 def siConvert(order=None, prefix=None):
@@ -44,30 +45,16 @@ def siConvert(order=None, prefix=None):
 # Returns scaled value with SI prefix
 def scale(value, combined=True):
 	# Set starting order
-	order = 0
 	if type(value) == str:
-		# Determine order if a prefix is included
-		if value[-1].isalpha():
-			prefix = value[-1]
-			# Attempt to get order from prefix
-			order = siConvert(prefix=prefix)
-			# Remove prefix from value string
-			value = value[:-1].strip()
+		# Expand number
+		value = expand(value)
 
 	value = float(value)
-	# Scale number while it is not within 3 orders of magnitude
-	# Using absolute to handle negative values
-	# Skip scaling if value is zero
-	if value != 0:
-		while abs(value) >= 1000 or abs(value) < 1:
-			# If number is larger than one, increase scale
-			if abs(value) > 1:
-				value = value / 1000
-				order += 3
-			# If number is smaller than one, decrease scale
-			else:
-				value = value * 1000
-				order -= 3
+	
+	# Get number of non-decimal digits
+	order = int(math.log(abs(value)))
+	# Convert order to multiple of 3
+	order = math.floor(order / 3) * 3
 
 	# Attempt to get prefix from order
 	prefix = siConvert(order=order)

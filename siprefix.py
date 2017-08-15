@@ -32,7 +32,7 @@ def siConvert(order=None, prefix=None):
 			return data[prefix]
 		# Unless prefix is not found
 		except KeyError:
-			raise KeyError("invalid 'prefix' defined")
+			raise KeyError("invalid 'prefix' defined", prefix)
 	# If scale is set
 	if order is not None:
 		# Return prefix
@@ -40,7 +40,7 @@ def siConvert(order=None, prefix=None):
 			return next((k for k, v in data.items() if v == order))
 		# Unless scale is not found
 		except StopIteration:
-			raise KeyError("invalid 'order' defined")
+			raise KeyError("invalid 'order' defined", order)
 
 # Returns scaled value with SI prefix
 def scale(value, combined=True):
@@ -52,9 +52,11 @@ def scale(value, combined=True):
 	value = float(value)
 	
 	# Get number of non-decimal digits
-	order = int(math.log(abs(value)))
+	order = int(math.log10(abs(value)))
 	# Convert order to multiple of 3
 	order = math.floor(order / 3) * 3
+
+	value = value / 10 ** order
 
 	# Attempt to get prefix from order
 	prefix = siConvert(order=order)

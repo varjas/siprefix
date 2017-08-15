@@ -35,6 +35,10 @@ def siConvert(order=None, prefix=None):
 			raise KeyError("invalid 'prefix' defined: " + str(prefix))
 	# If scale is set
 	if order is not None:
+		if order > 24:
+			order = 24
+		elif order < -24:
+			order = -24
 		# Return prefix
 		try:
 			return next((k for k, v in data.items() if v == order))

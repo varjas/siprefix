@@ -60,9 +60,9 @@ siprefix.scale('9000000 m', False)
 ```
 
 #### Design
-Sorting of values should be done prior to scaling to `str` with prefixes as magnitude differences will not be handled correctly.
+Sorting of values should be done prior to scaling to `str` output with prefixes as magnitude differences will not be handled correctly.
 
-The tuple output option is included to allow for easier formatting of the output values.
+The tuple output option in the `scale()` function is included to allow for easier formatting of the output values.
 
 SIPrefix does not handle units at all. There are many other packages capable of this functionality (see Resources section below). Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input into `scale()` function will cause incorrect scaling due to treating the unit as the 'milli' prefix.
 

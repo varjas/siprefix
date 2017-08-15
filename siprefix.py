@@ -4,7 +4,7 @@ import math
 def siConvert(order=None, prefix=None):
 	# Require at least one argument
 	if prefix is None and order is None:
-		raise TypeError('siConvert() missing at least 1 positional argument: \'order\' or \'prefix\'')
+		raise TypeError("siConvert() missing at least 1 positional argument: 'order' or 'prefix'")
 	# Define prefix, scale relations
 	data = {
 		'Y': 24,
@@ -32,7 +32,7 @@ def siConvert(order=None, prefix=None):
 			return data[prefix]
 		# Unless prefix is not found
 		except KeyError:
-			raise KeyError("invalid 'prefix' defined", prefix)
+			raise KeyError("invalid 'prefix' defined: " + str(prefix))
 	# If scale is set
 	if order is not None:
 		# Return prefix
@@ -40,7 +40,7 @@ def siConvert(order=None, prefix=None):
 			return next((k for k, v in data.items() if v == order))
 		# Unless scale is not found
 		except StopIteration:
-			raise KeyError("invalid 'order' defined", order)
+			raise KeyError("invalid 'order' defined: " + str(order))
 
 # Returns scaled value with SI prefix
 def scale(value, combined=True):

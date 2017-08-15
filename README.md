@@ -97,5 +97,5 @@ siprefix.expand('400.0 f')
 - [SIPrefix GitHub](https://www.github.com)
 
 ## License
-Code released under the [MIT License](https://choosealicense.com/licenses/mit/).
+Code released under the [MIT License](LICENSE.md).
 

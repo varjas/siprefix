@@ -101,7 +101,9 @@ Sorting of values should be done prior to scaling as magnitude differences will 
 
 The tuple output option is included to allow for easier formatting of the output values.
 
-SIPrefix does not handle units at all. There are many other packages capable of this functionality (see Resources section below). Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input will cause incorrect scaling/expansion due to treating the unit as the 'milli' prefix.
+SIPrefix does not handle units at all. There are other packages capable of this functionality (see Resources section below).
+
+Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input will cause incorrect scaling/expansion due to treating the unit as the 'milli' prefix.
 
 If units are required, they should be removed from the input value and appended after scaling.
 

@@ -1,6 +1,8 @@
 # SIPrefix
 ## Introduction
-SIPrefix provides functions for converting full scale numbers to the nearest appropriate SI prefix scale, and expanding values with SI prefixes to full scale.
+SIPrefix provides functions to convert numbers between varied orders of magnitude and SI prefix based magnitudes. Large or small numbers can be scaled to between 1 and 1000 with a corresponding SI prefix. Numbers with an SI prefix can be expanded to the actual zero order magnitude representation.
+
+These functions allow for large or small numbers to be formatted for improved visualization, and enable easy use of numbers with SI prefixes in calculations.
 
 To use SIPrefix, clone the repository and import the module:
 ```python

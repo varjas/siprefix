@@ -28,7 +28,7 @@ siprefix.scale(value, combined=True)
 #### Base Order Input
 The `value` parameter can be a `float`, `int`, `Decimal`, or `str` type.
 
-The function will output a `str` with the scaled number and prefix.
+The function will output a `str` with the scaled number and prefix separated by a space.
 
 If the `combined` argument is set to `False`, the function will output a tuple containing a `float` of the scaled number and a `str` of the prefix.
 
@@ -55,10 +55,13 @@ siprefix.scale(0.5, False)
 ```
 
 #### Non-Base Order Input
-Use of non-base order input requires the value and prefix to be combined into a single `str` type.
+Use of non-base order input requires the value and prefix to be combined into a single `str` type. The value and prefix are not required to be separated by a space.
 
 ```python
 siprefix.scale('0.0000005 a')
+# '500.0 m'
+
+siprefix.scale('0.0000005a')
 # '500.0 m'
 
 siprefix.scale('9000000 m')
@@ -67,15 +70,6 @@ siprefix.scale('9000000 m')
 siprefix.scale('9000000 m', False)
 # (9.0, 'k')
 ```
-
-#### Design
-Sorting of values should be done prior to scaling as magnitude differences will not be handled correctly in the output `str` type.
-
-The tuple output option is included to allow for easier formatting of the output values.
-
-SIPrefix does not handle units at all. There are many other packages capable of this functionality (see Resources section below). Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input will cause incorrect scaling due to treating the unit as the 'milli' prefix.
-
-If units are required, they should be removed from the input value and appended after scaling.
 
 ### Value Expansion
 Expands input value with SI prefix to full scale representation.
@@ -101,6 +95,15 @@ siprefix.expand('30')
 siprefix.expand('400.0 f')
 # 0.0000000000004
 ```
+
+### Considerations
+Sorting of values should be done prior to scaling as magnitude differences will not be handled correctly in the output `str` type.
+
+The tuple output option is included to allow for easier formatting of the output values.
+
+SIPrefix does not handle units at all. There are many other packages capable of this functionality (see Resources section below). Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input will cause incorrect scaling/expansion due to treating the unit as the 'milli' prefix.
+
+If units are required, they should be removed from the input value and appended after scaling.
 
 ## Resources
 - [SIPrefix GitLab](https://gitlab.com/varjas/siprefix)

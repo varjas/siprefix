@@ -1,8 +1,10 @@
 # SIPrefix
 ## Introduction
-SIPrefix provides functions to convert numbers between varied orders of magnitude and SI prefix based magnitudes. Large or small numbers can be scaled to between 1 and 1000 with a corresponding SI prefix. Numbers with an SI prefix can be expanded to the actual zero order magnitude representation.
+SIPrefix converts numbers between varied orders of magnitude and SI prefix based magnitudes.
 
-These functions allow for large or small numbers to be formatted for improved visualization, and enable easy use of numbers with SI prefixes in calculations.
+Large or small numbers can be scaled to between 10⁰ and 10³ with a corresponding SI prefix. Scaled numbers with an SI prefix can be converted back to the full magnitude representation.
+
+These functions allow for improved visualization of large or small numbers, and enable easy use of numbers with SI prefixes in calculations.
 
 To use SIPrefix, clone the repository and import the module:
 ```python
@@ -15,6 +17,8 @@ SIPrefix only uses SI prefixes that are separated by 3 orders of magnitude, incl
 Y, Z, E, P, T, G, M, k, (base), c, m, µ, n, p, f, a, z, y
 
 ### Value Scaling
+Scales input value to within 10⁰ and 10³ with a corresponding SI prefix. (Scaling can exceed 10³ if input is beyond range of SI prefix magnitudes)
+
 ```python
 siprefix.scale(value, combined=True)
 ```
@@ -71,6 +75,8 @@ SIPrefix does not handle units at all. There are many other packages capable of 
 If units are required, they should be removed from the input value and appended after scaling.
 
 ### Value Expansion
+Expands input value with SI prefix to full scale representation.
+
 ```python
 siprefix.scale(value)
 ```

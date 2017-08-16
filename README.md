@@ -16,6 +16,8 @@ SIPrefix only uses SI prefixes that are separated by 3 orders of magnitude, incl
 
 Y, Z, E, P, T, G, M, k, (base), c, m, µ, n, p, f, a, z, y
 
+Hecto- (h), deca- (da), deci- (d), centi- (c), and any non-SI prefixes are not used in SIPrefix.
+
 ### Value Scaling
 Scales input value to within 10⁰ and 10³ with a corresponding SI prefix. (Scaling can exceed 10³ if input is beyond range of SI prefix magnitudes)
 
@@ -103,6 +105,8 @@ siprefix.expand('400.0 f')
 ## Resources
 - [SIPrefix GitLab](https://gitlab.com/varjas/siprefix)
 - [SIPrefix GitHub](https://www.github.com)
+- [Magnitude Library](https://github.com/juanre/magnitude)
+- [Metric prefix - Wikipedia](https://wikipedia.org/wiki/Metric_prefix)
 
 ## License
 Code released under the [MIT License](LICENSE.md).

@@ -102,7 +102,7 @@ SIPrefix does not handle units at all. There are other packages capable of this 
 
 Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input will cause incorrect scaling/expansion due to treating the unit as the 'milli' prefix.
 
-If units are required, they should be removed from the input value and appended after scaling.
+If units are required, they can be removed from the input value and appended after scaling/expansion.
 
 ## Resources
 - [SIPrefix GitLab](https://gitlab.com/varjas/siprefix)

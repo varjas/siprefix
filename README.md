@@ -42,8 +42,8 @@ siprefix.scale(9000)
 # '9.0 k'
 
 # Decimal
-siprefix.scale(Decimal(30))
-# '30.0'
+siprefix.scale(Decimal(42))
+# '42.0'
 
 # str
 siprefix.scale('0.0000000000004')
@@ -58,10 +58,10 @@ siprefix.scale(0.5, False)
 Use of non-base order input requires the value and prefix to be combined into a single `str` type. The value and prefix are not required to be separated by a space.
 
 ```python
-siprefix.scale('0.0000005 a')
+siprefix.scale('0.0000005 M')
 # '500.0 m'
 
-siprefix.scale('0.0000005a')
+siprefix.scale('0.0000005M')
 # '500.0 m'
 
 siprefix.scale('9000000 m')
@@ -75,7 +75,7 @@ siprefix.scale('9000000 m', False)
 Expands input value with SI prefix to full scale representation.
 
 ```python
-siprefix.scale(value)
+siprefix.expand(value)
 ```
 
 The `value` parameter should be a `str` type to include an associated SI prefix. The prefix can directly follow the number without a space. The function will not expand any values if the parameter is a `float`, `int`, or `Decimal` type.
@@ -86,14 +86,11 @@ The function will output a `float` of the expanded number.
 siprefix.expand('500 m')
 # 0.5
 
-siprefix.expand('9 K')
+siprefix.expand('9 k')
 # 9000.0
 
-siprefix.expand('30')
-# 30.0
-
 siprefix.expand('400.0 f')
-# 0.0000000000004
+# 4e-13
 ```
 
 ### Considerations

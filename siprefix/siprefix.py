@@ -53,7 +53,7 @@ def scale(value, combined=True):
 	value = float(value)
 	
 	# Get number of non-decimal digits
-	order = int(math.log10(abs(value)))
+	order = math.floor(math.log10(abs(value)))
 	# Convert order to first lowest multiple of 3
 	order = order // 3 * 3
 

@@ -58,17 +58,17 @@ siprefix.scale(0.5, False)
 Use of non-base order input requires the value and prefix to be combined into a single `str` type. The value and prefix are not required to be separated by a space.
 
 ```python
-siprefix.scale('0.0000005 M')
-# '500.0 m'
+# Prefix space
+siprefix.scale('0.00005 P')
+# '50.0 G'
 
-siprefix.scale('0.0000005M')
-# '500.0 m'
+# No prefix space
+siprefix.scale('0.00005P')
+# '50.0 G'
 
-siprefix.scale('9000000 m')
-# '9.0 k'
-
-siprefix.scale('9000000 m', False)
-# (9.0, 'k')
+# Tuple output
+siprefix.scale('0.00005 P', False)
+# (50.0, 'G')
 ```
 
 ### Value Expansion

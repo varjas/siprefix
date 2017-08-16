@@ -26,7 +26,9 @@ siprefix.scale(value, combined=True)
 #### Base Order Input
 The `value` parameter can be a `float`, `int`, `Decimal`, or `str` type.
 
-The function will output a `str` with the scaled number and prefix; or a tuple containing a `float` of the scaled number and a `str` of the prefix if the second argument is set to `False`.
+The function will output a `str` with the scaled number and prefix.
+
+If the `combined` argument is set to `False`, the function will output a tuple containing a `float` of the scaled number and a `str` of the prefix.
 
 ```python
 # float
@@ -51,8 +53,7 @@ siprefix.scale(0.5, False)
 ```
 
 #### Non-Base Order Input
-Use of non-base order input requires the value and prefix to be combined into a single string.
-The `value` parameter can be a `str`.
+Use of non-base order input requires the value and prefix to be combined into a single `str` type.
 
 ```python
 siprefix.scale('0.0000005 a')
@@ -66,11 +67,11 @@ siprefix.scale('9000000 m', False)
 ```
 
 #### Design
-Sorting of values should be done prior to scaling to `str` output with prefixes as magnitude differences will not be handled correctly.
+Sorting of values should be done prior to scaling as magnitude differences will not be handled correctly in the output `str` type.
 
-The tuple output option in the `scale()` function is included to allow for easier formatting of the output values.
+The tuple output option is included to allow for easier formatting of the output values.
 
-SIPrefix does not handle units at all. There are many other packages capable of this functionality (see Resources section below). Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input into `scale()` function will cause incorrect scaling due to treating the unit as the 'milli' prefix.
+SIPrefix does not handle units at all. There are many other packages capable of this functionality (see Resources section below). Inclusion of units in some cases will lead to errors due to overlap with SI prefixes. For instance, including the 'meter' abbreviation 'm' as input will cause incorrect scaling due to treating the unit as the 'milli' prefix.
 
 If units are required, they should be removed from the input value and appended after scaling.
 

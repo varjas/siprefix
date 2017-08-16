@@ -8,7 +8,7 @@ These functions allow for improved visualization of large or small numbers, and 
 
 To use SIPrefix, clone the repository and import the module:
 ```python
-import siprefix
+from siprefix import siprefix
 ```
 
 ## Usage

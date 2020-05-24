@@ -107,6 +107,8 @@ If units are required, they can be removed from the input value and appended aft
 ## Resources
 - [SIPrefix GitLab](https://gitlab.com/varjas/siprefix)
 - [SIPrefix GitHub](https://github.com/varjas/siprefix)
+- [SIPrefix JavaScript GitLab](https://gitlab.com/varjas/siprefixjs)
+- [SIPrefix JavaScript GitHub](https://github.com/varjas/siprefixjs)
 - [Magnitude Library](https://github.com/juanre/magnitude)
 - [Metric prefix - Wikipedia](https://wikipedia.org/wiki/Metric_prefix)
 
